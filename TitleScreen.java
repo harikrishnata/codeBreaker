@@ -51,7 +51,7 @@ public class TitleScreen extends JFrame implements ActionListener {
             frame.setContentPane(outer);
 
             frame.setSize(400,125);
-            frame.setTitle("Hello");
+            frame.setTitle("Code Breaker");
             frame.setVisible(true);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
