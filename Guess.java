@@ -66,8 +66,8 @@ public class Guess extends JPanel{
         Picture p1 = new Picture("Empty.png");
         guessUnit = new JLabel[codeLength];
 
-        GridLayout guessPanelLayout = new GridLayout(1,codeLength);
-        this.setLayout(guessPanelLayout);
+        GridLayout guessLayout = new GridLayout(1,codeLength);
+        this.setLayout(guessLayout);
 
         for(int i = 0;i<codeLength;i++)
         {

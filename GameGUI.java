@@ -9,6 +9,7 @@ public class GameGUI extends JFrame{ //implements ActionListener {
     int numOfGuesses;
 
     Guess[] guesses;
+    GuessCheck[] guessChecks;
 
     //JLabel[] guess;
     //JLabel[] guessCheck;
@@ -87,11 +88,11 @@ public class GameGUI extends JFrame{ //implements ActionListener {
         //totalGuess(0);
         //totalGuess(1);
 
-        GridLayout allGuessesPanelLayout = new GridLayout(numOfGuesses,1);
+        GridLayout allGuessesPanelLayout = new GridLayout(numOfGuesses,2);
         allGuessesPanel.setLayout(allGuessesPanelLayout);
 
         guesses = new Guess[numOfGuesses];
-
+        guessChecks = new GuessCheck[numOfGuesses];
         //allGuessesPanel.add(totalGuessPanel[0]);
         //allGuessesPanel.add(totalGuessPanel[1]);
 
@@ -101,22 +102,12 @@ public class GameGUI extends JFrame{ //implements ActionListener {
         {
             guesses[i]=new Guess(codeLength);
             allGuessesPanel.add(guesses[i]);
+            guessChecks[i]=new GuessCheck(codeLength);
+            allGuessesPanel.add(guessChecks[i]);
         }
 
         //Guess g1 = new Guess(codeLength);
         //allGuessesPanel.add(g1);
-
-
-
-
-
-
-
-
-
-
-
-
 
         this.setContentPane(allGuessesPanel);
 
