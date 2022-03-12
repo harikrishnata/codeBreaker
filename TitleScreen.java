@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 public class TitleScreen extends JFrame implements ActionListener {
     JTextField t = new JTextField("CODE BREAKER");
 
-    JFrame frame;
+    //JFrame frame = new JFrame();
     JPanel outer;
     JPanel inner;
 
@@ -26,8 +26,6 @@ public class TitleScreen extends JFrame implements ActionListener {
             b2.setFont(font2);
             b3.setFont(font2);
 
-
-            JFrame frame = new JFrame();
             JPanel outer = new JPanel();
             JPanel inner = new JPanel();
 
@@ -48,16 +46,26 @@ public class TitleScreen extends JFrame implements ActionListener {
             outer.add("South",inner);
             outer.add("North",t);
 
-            frame.setContentPane(outer);
+            this.setContentPane(outer);
 
-            frame.setSize(400,125);
-            frame.setTitle("Code Breaker");
-            frame.setVisible(true);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setSize(400,125);
+            this.setTitle("Code Breaker");
+            this.setVisible(true);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public void actionPerformed(ActionEvent e)
     {
           System.out.println("4567");
-    }
+          this.dispose();
+          if(e.getSource()==b1){
+            GameGUI G = new GameGUI(0);
+          } 
+          if(e.getSource()==b2){
+            GameGUI G = new GameGUI(1);
+          }    
+          if(e.getSource()==b3){
+            GameGUI G = new GameGUI(2);  
+          }      
+    }   
 
 }
