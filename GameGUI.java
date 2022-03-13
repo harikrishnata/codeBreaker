@@ -36,6 +36,12 @@ public class GameGUI extends JFrame{
                 numOfGuesses=8;
                 break;
         }
+        driver.code = new int[codeLength];
+        for(int i = 0;i<codeLength;i++){
+            driver.code[i]=(int)(Math.random() * 7);
+            System.out.println(driver.code[i]);
+        }
+
 
         GridLayout allGuessesPanelLayout = new GridLayout(numOfGuesses,1);
         allGuessesPanel.setLayout(allGuessesPanelLayout);
@@ -54,7 +60,7 @@ public class GameGUI extends JFrame{
             allGuessChecksPanel.add(guessChecks[i]);
         }
 
-        guessInput = new GuessInput(guesses);
+        guessInput = new GuessInput(guesses,guessChecks);
 
 
         outerPanel.setLayout(null);

@@ -3,12 +3,15 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class GuessInput extends JPanel implements ActionListener{
     JButton[] colours = new JButton[7];
     ImageIcon[] colourIcons = new ImageIcon[7];
     Guess[] g;
+    GuessCheck[] gc;
+    int[] guess=new int[GameGUI.codeLength];
 
-    public GuessInput(Guess[] guesses){
+    public GuessInput(Guess[] guesses, GuessCheck[] guessChecks){
         GridLayout guessInputLayout = new GridLayout(1,7);
         this.setLayout(guessInputLayout);
         for(int x=0;x<7;x++)
@@ -23,6 +26,7 @@ public class GuessInput extends JPanel implements ActionListener{
         }
         //codeLength=codeLengthL;
         g=guesses;
+        gc=guessChecks;
 
     }
     public void actionPerformed(ActionEvent e)
@@ -31,34 +35,42 @@ public class GuessInput extends JPanel implements ActionListener{
             if(e.getSource()==colours[0])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[0]);
+                guess[driver.currentElement]=0;
             }
             if(e.getSource()==colours[1])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[1]);
+                guess[driver.currentElement]=1;
             }            
             if(e.getSource()==colours[2])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[2]);
+                guess[driver.currentElement]=2;
             }            
             if(e.getSource()==colours[3])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[3]);
+                guess[driver.currentElement]=3;
             }            
             if(e.getSource()==colours[4])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[4]);
+                guess[driver.currentElement]=4;
             }            
             if(e.getSource()==colours[5])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[5]);
+                guess[driver.currentElement]=5;
             }            
             if(e.getSource()==colours[6])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[6]);
+                guess[driver.currentElement]=6;
             }            
-        (driver.currentElement)++;
+            (driver.currentElement)++;
         if(driver.currentElement==(GameGUI.codeLength))
         {
+            GuessComparer userGuess = new GuessComparer(guess,gc);
             //System.out.println("aaa");
             driver.currentGuess++;
             driver.currentElement=0;
