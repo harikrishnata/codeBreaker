@@ -6,19 +6,21 @@ import java.awt.event.ActionEvent;
 public class GuessCheck extends JPanel{
     JLabel[] guessCheckUnit;
 
-    public GuessCheck(int codeLength)
+    public GuessCheck()
     {
         Picture p1 = new Picture("Empty.png");
-        guessCheckUnit = new JLabel[codeLength];
+        guessCheckUnit = new JLabel[GameGUI.codeLength];
 
-        GridLayout guessCheckLayout = new GridLayout(2,(codeLength/2));
+        GridLayout guessCheckLayout = new GridLayout(2,(GameGUI.codeLength/2));
         this.setLayout(guessCheckLayout);
 
-        for(int i = 0;i<codeLength;i++)
+        for(int i = 0;i<GameGUI.codeLength;i++)
         {
             guessCheckUnit[i]=new JLabel(p1);
+            //(guessCheckUnit[i]).setPreferredSize(new Dimension(100,100));
             this.add(guessCheckUnit[i]);
         }
        
     }
+
 }

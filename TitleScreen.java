@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 public class TitleScreen extends JFrame implements ActionListener {
     JTextField t = new JTextField("CODE BREAKER");
 
-    //JFrame frame = new JFrame();
     JPanel outer;
     JPanel inner;
 

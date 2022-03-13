@@ -3,29 +3,68 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GuessInput extends JPanel{ //implements ActionListener{
+public class GuessInput extends JPanel implements ActionListener{
     JButton[] colours = new JButton[7];
-    public GuessInput(){
+    ImageIcon[] colourIcons = new ImageIcon[7];
+    Guess[] g;
+
+    public GuessInput(Guess[] guesses){
         GridLayout guessInputLayout = new GridLayout(1,7);
         this.setLayout(guessInputLayout);
-        ImageIcon red = new ImageIcon("Colour_0.png");
-        ImageIcon orange = new ImageIcon("Colour_1.png");
-        ImageIcon yellow = new ImageIcon("Colour_2.png");
-        ImageIcon green = new ImageIcon("Colour_3.png");
-        ImageIcon blue = new ImageIcon("Colour_4.png");
-        ImageIcon indigo = new ImageIcon("Colour_5.png");
-        ImageIcon violet = new ImageIcon("Colour_6.png");
-        colours[0] = new JButton(red);
-        colours[1]= new JButton(orange);
-        colours[2]=new JButton(yellow);
-        colours[3]=new JButton(green);
-        colours[4]=new JButton(blue);
-        colours[5]=new JButton(indigo);
-        colours[6]=new JButton(violet);
+        for(int x=0;x<7;x++)
+        {
+            colourIcons[x]=new ImageIcon("Colour_"+x+".png");
+            colours[x] = new JButton(colourIcons[x]);
+        }
         for(int i=0;i<7;i++){
             (colours[i]).setPreferredSize(new Dimension(100,100));
             this.add(colours[i]);
+            (colours[i]).addActionListener(this);
         }
+        //codeLength=codeLengthL;
+        g=guesses;
+
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        //System.out.println("4567");
+            if(e.getSource()==colours[0])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[0]);
+            }
+            if(e.getSource()==colours[1])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[1]);
+            }            
+            if(e.getSource()==colours[2])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[2]);
+            }            
+            if(e.getSource()==colours[3])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[3]);
+            }            
+            if(e.getSource()==colours[4])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[4]);
+            }            
+            if(e.getSource()==colours[5])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[5]);
+            }            
+            if(e.getSource()==colours[6])
+            {
+                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[6]);
+            }            
+        (driver.currentElement)++;
+        if(driver.currentElement==(GameGUI.codeLength))
+        {
+            //System.out.println("aaa");
+            driver.currentGuess++;
+            driver.currentElement=0;
+
+        }
+
 
     }
 }
