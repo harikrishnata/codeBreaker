@@ -27,6 +27,9 @@ public class GameGUI extends JFrame{ //implements ActionListener {
 
 
     JPanel allGuessesPanel = new JPanel();
+    JPanel allGuessChecksPanel = new JPanel();
+
+
     JPanel outerPanel = new JPanel();
 
 
@@ -47,7 +50,7 @@ public class GameGUI extends JFrame{ //implements ActionListener {
                 break;
             case 2:
                 codeLength=6;
-                numOfGuesses=10;
+                numOfGuesses=8;
                 break;
         }
 
@@ -90,8 +93,12 @@ public class GameGUI extends JFrame{ //implements ActionListener {
         //totalGuess(0);
         //totalGuess(1);
 
-        GridLayout allGuessesPanelLayout = new GridLayout(numOfGuesses,2);
+        GridLayout allGuessesPanelLayout = new GridLayout(numOfGuesses,1);
         allGuessesPanel.setLayout(allGuessesPanelLayout);
+
+
+        GridLayout allGuessChecksPanelLayout = new GridLayout(numOfGuesses,1);
+        allGuessChecksPanel.setLayout(allGuessChecksPanelLayout);
 
         guesses = new Guess[numOfGuesses];
         guessChecks = new GuessCheck[numOfGuesses];
@@ -105,18 +112,48 @@ public class GameGUI extends JFrame{ //implements ActionListener {
             guesses[i]=new Guess(codeLength);
             allGuessesPanel.add(guesses[i]);
             guessChecks[i]=new GuessCheck(codeLength);
-            allGuessesPanel.add(guessChecks[i]);
+            allGuessChecksPanel.add(guessChecks[i]);
         }
 
 
-        GridLayout outerPanelLayout = new GridLayout(2,1);
-        outerPanel.setLayout(outerPanelLayout);
+        GridBagLayout outerPanelLayout = new GridBagLayout();
+        outerPanel.setLayout(null);
 
+        GridBagConstraints c = new GridBagConstraints();
 
-
+        /*c.gridx=0;
+        c.gridy=0;
+        c.gridwidth=2;
+        c.gridheight=numOfGuesses;
+        */
 
         outerPanel.add(allGuessesPanel);
+
+        allGuessesPanel.setSize(codeLength*85, numOfGuesses*85);
+        allGuessesPanel.setLocation(0,0);
+        /*
+        c.gridx=GridBagConstraints.RELATIVE;
+        c.gridy=0;
+        c.gridwidth=1;
+        c.gridheight=numOfGuesses;
+        */
+
+        outerPanel.add(allGuessChecksPanel);
+
+        allGuessChecksPanel.setSize(codeLength*85/2, numOfGuesses*85);
+        allGuessChecksPanel.setLocation(codeLength*85,0);        
+
+        /*
+        c.gridx=0;
+        c.gridy=GridBagConstraints.RELATIVE;
+        c.gridwidth=2;
+        c.gridheight=1;
+        */
+
         outerPanel.add(guessInput);
+
+        guessInput.setSize(codeLength*85*3/2,85);
+        guessInput.setLocation(0,numOfGuesses*85); 
 
 
         //Guess g1 = new Guess(codeLength);

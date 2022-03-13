@@ -23,6 +23,7 @@ public class GuessInput extends JPanel{ //implements ActionListener{
         colours[5]=new JButton(indigo);
         colours[6]=new JButton(violet);
         for(int i=0;i<7;i++){
+            (colours[i]).setPreferredSize(new Dimension(100,100));
             this.add(colours[i]);
         }
 

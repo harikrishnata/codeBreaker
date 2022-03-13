@@ -72,6 +72,7 @@ public class Guess extends JPanel{
         for(int i = 0;i<codeLength;i++)
         {
             guessUnit[i]=new JLabel(p1);
+            (guessUnit[i]).setPreferredSize(new Dimension(100,100));
             this.add(guessUnit[i]);
         }
        
