@@ -10,6 +10,7 @@ public class GameGUI extends JFrame{ //implements ActionListener {
 
     Guess[] guesses;
     GuessCheck[] guessChecks;
+    GuessInput guessInput = new GuessInput();
 
     //JLabel[] guess;
     //JLabel[] guessCheck;
@@ -26,6 +27,7 @@ public class GameGUI extends JFrame{ //implements ActionListener {
 
 
     JPanel allGuessesPanel = new JPanel();
+    JPanel outerPanel = new JPanel();
 
 
     //JPanel colourSelectPanel = new JPanel();
@@ -106,10 +108,21 @@ public class GameGUI extends JFrame{ //implements ActionListener {
             allGuessesPanel.add(guessChecks[i]);
         }
 
+
+        GridLayout outerPanelLayout = new GridLayout(2,1);
+        outerPanel.setLayout(outerPanelLayout);
+
+
+
+
+        outerPanel.add(allGuessesPanel);
+        outerPanel.add(guessInput);
+
+
         //Guess g1 = new Guess(codeLength);
         //allGuessesPanel.add(g1);
 
-        this.setContentPane(allGuessesPanel);
+        this.setContentPane(outerPanel);
 
         this.setSize(400,125);
         this.setTitle("Code Breaker");
