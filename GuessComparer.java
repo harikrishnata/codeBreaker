@@ -2,51 +2,59 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
+
 
 public class GuessComparer{
     int[] code = new int[GameGUI.codeLength];
-    //int[] codeGuess = new int[GameGUI.codeLength]
-    int correctColour;
-    int correctColourPosition;
+    int correctColour=0;
+    int correctColourPosition=0;
     ImageIcon colourPosition=new ImageIcon("Score_"+0+".png");
     ImageIcon onlyColour=new ImageIcon("Score_"+1+".png");
 
-
-    public boolean contains(int[] array, int key) 
+    public void numIntersection(int c[], int d[])
     {
-        for (int i=0;i<array.length;i++) 
-        {
-            if (array[i] == key) 
-            {
-            return true;
+        int i = 0;
+        int j = 0;
+        int a[]=c.clone();
+        int b[]=d.clone();
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        while (i < GameGUI.codeLength && j < GameGUI.codeLength) {
+ 
+            if (a[i] > b[j]) {
+                j++;
+            }
+ 
+            else if (b[j] > a[i]) {
+                i++;
+            }
+            else {
+                correctColour++;
+                i++;
+                j++;
             }
         }
-        return false;
     }
 
     public GuessComparer(int[] codeGuess,GuessCheck[] guessChecks)
     {
-        //driver.currentGuess++;
-        //driver.currentElement=0;
-        //this.codeGuess
+
         for(int i=0;i<(GameGUI.codeLength);i++)
         {
-            if(contains((driver.code),codeGuess[i]))
+            if((driver.code)[i]==codeGuess[i])
             {
-                if((driver.code)[i]==codeGuess[i])
-                {
-                    correctColourPosition++;
-                }
-                else
-                {
-                    correctColour++;
-                }
+                correctColourPosition++;
             }
+
         }
+        numIntersection(codeGuess, driver.code);
+        correctColour=correctColour-correctColourPosition;
+        
         System.out.println(correctColour);
         System.out.println(correctColourPosition);
 
-        //int counter=GameGUI.codeLength-correctColourPosition-correctColour;
         int counter=0;
         for(int x=0;x<correctColourPosition;x++){
             guessChecks[driver.currentGuess].guessCheckUnit[counter].setIcon(colourPosition);
@@ -57,7 +65,6 @@ public class GuessComparer{
             counter++;
         }       
 
-        //driver.currentGuess=0;
 
     }
 }
