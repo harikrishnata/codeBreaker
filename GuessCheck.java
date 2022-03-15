@@ -13,6 +13,7 @@ public class GuessCheck extends JPanel{
 
         GridLayout guessCheckLayout = new GridLayout(2,(GameGUI.codeLength/2));
         this.setLayout(guessCheckLayout);
+        this.setBackground(new Color(146, 101, 0));
 
         for(int i = 0;i<GameGUI.codeLength;i++)
         {

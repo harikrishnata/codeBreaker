@@ -18,7 +18,6 @@ public class TitleScreen extends JFrame implements ActionListener {
     public TitleScreen()
     {
             driver.currentElement=0;
-            driver.currentGuess=0;
 
 
             Font font1 = new Font("Big Carlson", Font.BOLD, 35);
@@ -61,8 +60,12 @@ public class TitleScreen extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
           System.out.println("4567");
+          driver.currentElement=0;
+          driver.done=false;
+          driver.currentGuess=0;
           this.dispose();
           if(e.getSource()==b1){
+
             G = new GameGUI(0);
           } 
           if(e.getSource()==b2){

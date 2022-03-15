@@ -49,6 +49,9 @@ public class GuessComparer{
             }
 
         }
+        if(correctColourPosition==GameGUI.codeLength){
+            driver.done=true;
+        }
         numIntersection(codeGuess, driver.code);
         correctColour=correctColour-correctColourPosition;
 

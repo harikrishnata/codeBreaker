@@ -32,7 +32,7 @@ public class GameGUI extends JFrame{
                 numOfGuesses=6;
                 break;
             case 2:
-                codeLength=6;
+                codeLength=7;
                 numOfGuesses=8;
                 break;
         }
@@ -55,9 +55,11 @@ public class GameGUI extends JFrame{
         for(int i = 0;i<numOfGuesses;i++)
         {
             guesses[i]=new Guess();
+            guesses[i].setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
             allGuessesPanel.add(guesses[i]);
             guessChecks[i]=new GuessCheck();
             allGuessChecksPanel.add(guessChecks[i]);
+            guessChecks[i].setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.black));
         }
 
         guessInput = new GuessInput(guesses,guessChecks);
@@ -66,20 +68,40 @@ public class GameGUI extends JFrame{
         outerPanel.setLayout(null);
 
         outerPanel.add(allGuessesPanel);
-        allGuessesPanel.setSize(codeLength*85, numOfGuesses*85);
+        allGuessesPanel.setSize(codeLength*85, numOfGuesses*84);
         allGuessesPanel.setLocation(0,0);
 
         outerPanel.add(allGuessChecksPanel);
-        allGuessChecksPanel.setSize(codeLength*85/2, numOfGuesses*85);
-        allGuessChecksPanel.setLocation(codeLength*85,0);        
+        allGuessChecksPanel.setSize(codeLength*85/2, numOfGuesses*84);
+        allGuessChecksPanel.setLocation(codeLength*85,0);  
+        allGuessChecksPanel.setBackground(Color.ORANGE);
+      
+
+        //allGuessChecksPanel.setBackground(Color.ORANGE);
+        //allGuessesPanel.setBackground(Color.ORANGE);
+        guessInput.setBackground(new Color(146, 101, 0));
 
         outerPanel.add(guessInput);
-        guessInput.setSize(codeLength*85*3/2,85);
+        guessInput.setSize(4*85*3/2,84);
         guessInput.setLocation(0,numOfGuesses*85); 
 
+        outerPanel.setBackground(new Color(146, 101, 0));
 
         this.setContentPane(outerPanel);
-        this.setSize(codeLength*85*3/2,(numOfGuesses+1)*85+30);
+
+
+        if(codeLength>4)
+        {
+            this.setSize(codeLength*85*3/2,(numOfGuesses+1)*85+30);
+        }
+        else
+        {
+            this.setSize(4*85*3/2,(numOfGuesses+1)*85+30);    
+        }
+
+
+
+        this.setBackground(new Color(146, 101, 0));
         this.setTitle("Code Breaker");
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

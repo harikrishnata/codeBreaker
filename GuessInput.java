@@ -17,7 +17,8 @@ public class GuessInput extends JPanel implements ActionListener{
         for(int x=0;x<7;x++)
         {
             colourIcons[x]=new ImageIcon("Colour_"+x+".png");
-            colours[x] = new JButton(colourIcons[x]);
+            colours[x] = new JButton();
+            colours[x].setIcon(colourIcons[x]);
         }
         for(int i=0;i<7;i++){
             (colours[i]).setPreferredSize(new Dimension(100,100));
@@ -31,7 +32,9 @@ public class GuessInput extends JPanel implements ActionListener{
     }
     public void actionPerformed(ActionEvent e)
     {
-        //System.out.println("4567");
+        if(driver.done==false)
+        {
+            //System.out.println("4567");
             if(e.getSource()==colours[0])
             {
                 g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[0]);
@@ -69,25 +72,25 @@ public class GuessInput extends JPanel implements ActionListener{
             }            
             (driver.currentElement)++;
 
-        if(driver.currentElement==(GameGUI.codeLength))
-        {
-            GuessComparer userGuess = new GuessComparer(guess,gc);
-            System.out.println("aaa");
-            if(driver.currentGuess==((GameGUI.numOfGuesses)-1)&&driver.currentElement==GameGUI.codeLength){
+            if(driver.currentElement==(GameGUI.codeLength))
+            {
+                GuessComparer userGuess = new GuessComparer(guess,gc);
+                System.out.println("aaa");
+                if(driver.currentGuess==((GameGUI.numOfGuesses)-1)&&driver.currentElement==GameGUI.codeLength){
 
-                EndScreen E = new EndScreen(0);
-                System.out.println("bbbaaa");
+                    EndScreen E = new EndScreen(0);
+                    System.out.println("bbbaaa");
+                }
+                if(userGuess.correctColourPosition==GameGUI.codeLength){
+
+                    EndScreen E = new EndScreen(1);
+                    System.out.println("bbbaaa");
+                }            
+                driver.currentGuess++;
+                driver.currentElement=0;
+
             }
-            if(userGuess.correctColourPosition==GameGUI.codeLength){
-
-                EndScreen E = new EndScreen(1);
-                System.out.println("bbbaaa");
-            }            
-            driver.currentGuess++;
-            driver.currentElement=0;
-
         }
-
 
     }
 }
