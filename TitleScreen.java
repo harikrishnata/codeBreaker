@@ -13,8 +13,14 @@ public class TitleScreen extends JFrame implements ActionListener {
     JButton b2=new JButton("MEDIUM");
     JButton b3=new JButton("HARD");
 
+    static GameGUI G;
+
     public TitleScreen()
     {
+            driver.currentElement=0;
+            driver.currentGuess=0;
+
+
             Font font1 = new Font("Big Carlson", Font.BOLD, 35);
             t.setFont(font1);
             t.setEditable(false);
@@ -57,13 +63,13 @@ public class TitleScreen extends JFrame implements ActionListener {
           System.out.println("4567");
           this.dispose();
           if(e.getSource()==b1){
-            GameGUI G = new GameGUI(0);
+            G = new GameGUI(0);
           } 
           if(e.getSource()==b2){
-            GameGUI G = new GameGUI(1);
+            G = new GameGUI(1);
           }    
           if(e.getSource()==b3){
-            GameGUI G = new GameGUI(2);  
+            G = new GameGUI(2);  
           }      
     }   
 

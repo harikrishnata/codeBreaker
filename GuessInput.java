@@ -68,10 +68,21 @@ public class GuessInput extends JPanel implements ActionListener{
                 guess[driver.currentElement]=6;
             }            
             (driver.currentElement)++;
+
         if(driver.currentElement==(GameGUI.codeLength))
         {
             GuessComparer userGuess = new GuessComparer(guess,gc);
-            //System.out.println("aaa");
+            System.out.println("aaa");
+            if(driver.currentGuess==((GameGUI.numOfGuesses)-1)&&driver.currentElement==GameGUI.codeLength){
+
+                EndScreen E = new EndScreen(0);
+                System.out.println("bbbaaa");
+            }
+            if(userGuess.correctColourPosition==GameGUI.codeLength){
+
+                EndScreen E = new EndScreen(1);
+                System.out.println("bbbaaa");
+            }            
             driver.currentGuess++;
             driver.currentElement=0;
 

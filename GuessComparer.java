@@ -51,7 +51,7 @@ public class GuessComparer{
         }
         numIntersection(codeGuess, driver.code);
         correctColour=correctColour-correctColourPosition;
-        
+
         System.out.println(correctColour);
         System.out.println(correctColourPosition);
 
