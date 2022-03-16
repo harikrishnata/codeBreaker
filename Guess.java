@@ -9,7 +9,7 @@ public class Guess extends JPanel
     
     public Guess()
     {
-        ImageIcon p1 = new ImageIcon("Empty.png");
+        ImageIcon p1 = new ImageIcon("Empty.png");                      //creates icons for each element of guess and adds it to panel
         guessUnit = new JLabel[driver.codeLength];
         GridLayout guessLayout = new GridLayout(0,driver.codeLength);
         this.setLayout(guessLayout);

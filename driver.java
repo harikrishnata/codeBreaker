@@ -1,5 +1,6 @@
 public class driver 
 {
+    
     public static GameGUI G;
 
     public static int codeLength;
