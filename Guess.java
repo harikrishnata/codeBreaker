@@ -1,33 +1,24 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class Guess extends JPanel{
 
-    JLabel[] guessUnit; 
+public class Guess extends JPanel
+{
+
+    public JLabel[] guessUnit; 
     
     public Guess()
     {
-        Picture p1 = new Picture("Empty.png");
-        guessUnit = new JLabel[GameGUI.codeLength];
-
-        GridLayout guessLayout = new GridLayout(0,GameGUI.codeLength);
+        ImageIcon p1 = new ImageIcon("Empty.png");
+        guessUnit = new JLabel[driver.codeLength];
+        GridLayout guessLayout = new GridLayout(0,driver.codeLength);
         this.setLayout(guessLayout);
-
-
-
-        for(int i = 0;i<GameGUI.codeLength;i++)
+        this.setBackground(new Color(146, 101, 0));
+        for(int i = 0;i<driver.codeLength;i++)
         {
             guessUnit[i]=new JLabel(p1);
-            //(guessUnit[i]).setPreferredSize(new Dimension(100,100));
             this.add(guessUnit[i]);
 
         }
-       
     }
-
-
-
-
 }

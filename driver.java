@@ -1,28 +1,18 @@
-public class driver {
-    public static int currentGuess = 0;
-    public static int currentElement = 0;
+public class driver 
+{
+    public static GameGUI G;
 
-    public static boolean done=false;
+    public static int codeLength;
+    public static int numOfGuesses;
 
     public static int[] code;
 
-    public static void main(String[] args) {
-        TitleScreen G = new TitleScreen();
-        
-        /*
-        if(currentGuess==GameGUI.numOfGuesses-1&&currentElement==GameGUI.codeLength){
-            try 
-            {
-                Thread.sleep(1000); 
-                TitleScreen.G.dispose();
-            } 
-            catch (InterruptedException e) 
-            {
-                System.err.format("IOException: %s%n", e);
-            }
-
-        }
-        */
-
+    public static int currentGuess = 0;
+    public static int currentElement = 0;
+    public static boolean done=false;
+    public static boolean won=false;
+    public static void main(String[] args) 
+    {
+        TitleScreen T = new TitleScreen();
     }
 }
