@@ -40,37 +40,37 @@ public class GuessInput extends JPanel implements ActionListener
         {
             if(e.getSource()==colours[0])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[0]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[0]));
                 guess[driver.currentElement]=0;
             }
             if(e.getSource()==colours[1])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[1]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[1]));
                 guess[driver.currentElement]=1;
             }            
             if(e.getSource()==colours[2])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[2]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[2]));
                 guess[driver.currentElement]=2;
             }            
             if(e.getSource()==colours[3])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[3]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[3]));
                 guess[driver.currentElement]=3;
             }            
             if(e.getSource()==colours[4])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[4]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[4]));
                 guess[driver.currentElement]=4;
             }            
             if(e.getSource()==colours[5])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[5]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[5]));
                 guess[driver.currentElement]=5;
             }            
             if(e.getSource()==colours[6])
             {
-                g[driver.currentGuess].guessUnit[driver.currentElement].setIcon(colourIcons[6]);
+                g[driver.currentGuess].changeGuessUnit(driver.currentElement,(colourIcons[6]));
                 guess[driver.currentElement]=6;
             }            
             (driver.currentElement)++;

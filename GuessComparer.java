@@ -64,12 +64,12 @@ public class GuessComparer
         int counter=0;
         for(int x=0;x<correctColourPosition;x++)                                               //gives user feedback based on how many elements they got of right colour and right position
         {
-            guessChecks[driver.currentGuess].guessCheckUnit[counter].setIcon(colourPosition);
+            guessChecks[driver.currentGuess].changeGuessCheckUnit(counter,colourPosition);
             counter++;
         }
         for(int x=0;x<correctColour;x++)
         {
-            guessChecks[driver.currentGuess].guessCheckUnit[counter].setIcon(onlyColour);
+            guessChecks[driver.currentGuess].changeGuessCheckUnit(counter,onlyColour);
             counter++;
         }       
     }

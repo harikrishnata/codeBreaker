@@ -5,7 +5,7 @@ import java.awt.*;
 public class Guess extends JPanel
 {
 
-    public JLabel[] guessUnit; 
+    private JLabel[] guessUnit; 
     
     public Guess()
     {
@@ -20,5 +20,10 @@ public class Guess extends JPanel
             this.add(guessUnit[i]);
 
         }
+    }
+
+    public void changeGuessUnit(int i, ImageIcon p)
+    {
+        guessUnit[i].setIcon(p);
     }
 }
