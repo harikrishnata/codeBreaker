@@ -3,13 +3,18 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * This class is the title screen of the game
+ */
 public class TitleScreen extends JFrame implements ActionListener 
 {
 
     private JButton b1 = new JButton("EASY");   //buttons in title screen
     private JButton b2 = new JButton("MEDIUM");
     private JButton b3 = new JButton("HARD");
-
+    /**
+     * Constructor for the title screen
+    */
     public TitleScreen() 
     {
         JTextField t = new JTextField("CODE BREAKER");         //setting elements of title screen
@@ -41,10 +46,12 @@ public class TitleScreen extends JFrame implements ActionListener
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    /**
+     * Determines what the buttons do when they are pressed
+    */
     public void actionPerformed(ActionEvent e)
      {
-        this.dispose();             //title screen gets closed when a button is clicked
+        this.dispose();                 //title screen gets closed when a button is clicked
 
         if (e.getSource() == b1)        //GameGUI screen opens depending on difficulty user has selected
         {

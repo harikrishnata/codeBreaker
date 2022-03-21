@@ -1,3 +1,6 @@
+/**
+ * This class is to initialise the program
+ */
 public class driver 
 {
 
@@ -10,6 +13,10 @@ public class driver
     private static int[] code;
     private static int currentGuess = 0;
     private static int currentElement = 0;
+
+    /**
+     * Main method of driver
+    */    
     public static void main(String[] args) 
     {
         TitleScreen T = new TitleScreen();
@@ -47,6 +54,11 @@ public class driver
     public static void setCode(int[] x){
         code=x;
     }
+    /**
+     * Sets the element at a position in the code
+     * @param position position of code
+     * @param x element to set it to
+    */    
     public static void setCodeElement(int position, int x){
         code[position]=x;
     }
